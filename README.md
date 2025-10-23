@@ -1,9 +1,3 @@
-Perfect — here’s your **entire original text** converted into a clean, professional **README.md format**.
-Everything is properly sectioned, highlighted, and GitHub-ready with syntax highlighting, headings, and tables.
-
----
-
-````markdown
 # 🧠 Cognitive Complexity of Functions Should Not Be Too High (python:S3776)
 
 ---
@@ -89,7 +83,7 @@ Refactoring for lower complexity can be challenging — here are some practical 
 
 ## 🧩 Example 1 — Extract Complex Conditions into a New Function
 
-### ❌ Noncompliant Code
+#### ❌ Noncompliant Code
 ```python
 def process_eligible_users(users):
     for user in users:             # +1 (for)
@@ -97,9 +91,9 @@ def process_eligible_users(users):
             user.has_profile) or   # +1 (mixed operator)
             user.age > 18 ):
             user.process()
-````
+```
 
-### ✅ Compliant Solution
+#### ✅ Compliant Solution
 
 Even though the total program complexity remains similar, this version is **easier to read and maintain**.
 
@@ -117,7 +111,7 @@ def is_eligible_user(user):
 
 ## 🧩 Example 2 — Break Down Large Functions
 
-### ❌ Noncompliant Code
+#### ❌ Noncompliant Code
 
 ```python
 def process_user(user):
@@ -133,7 +127,7 @@ def process_user(user):
             ... # process inactive user without profile
 ```
 
-### ✅ Compliant Solution
+#### ✅ Compliant Solution
 
 This version spreads the complexity across smaller functions — no deep nesting required.
 
@@ -157,11 +151,13 @@ def process_inactive_user(user):
         ... # process inactive user without profile
 ```
 
+> Breaking large functions into smaller ones spreads complexity and makes each function easier to reason about.
+
 ---
 
 ## 🧩 Example 3 — Avoid Deep Nesting by Returning Early
 
-### ❌ Noncompliant Code
+#### ❌ Noncompliant Code
 
 ```python
 def calculate(data):
@@ -173,7 +169,7 @@ def calculate(data):
         return total
 ```
 
-### ✅ Compliant Solution
+#### ✅ Compliant Solution
 
 Flattening the condition reduces cognitive complexity from **6 → 4**.
 
@@ -218,9 +214,4 @@ Before refactoring:
 * [SonarLint for VS Code Documentation](https://docs.sonarsource.com/sonarlint/vscode/)
 * [Python Rule python:S3776 – Cognitive Complexity](https://rules.sonarsource.com/python/RSPEC-3776/)
 
-```
 
----
-
-✅ You can drop this directly into your `README.md` file — it’s fully GitHub-ready, formatted, and includes all your original content in structured markdown form.
-```
