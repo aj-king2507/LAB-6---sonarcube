@@ -56,3 +56,60 @@ def process_eligible_users(users):
             user.age > 18):
             user.process()
 
+### 2️⃣ Break Down Large Functions
+
+#### ❌ Noncompliant Code
+```python
+def process_user(user):
+    if user.is_active():
+        if user.has_profile():
+            ...
+        else:
+            ...
+    else:
+        if user.has_profile():
+            ...
+        else:
+            ...
+
+#### ✅ Compliant Code
+```python
+def process_user(user):
+    if user.is_active():
+        process_active_user(user)
+    else:
+        process_inactive_user(user)
+
+def process_active_user(user):
+    if user.has_profile():
+        ...
+    else:
+        ...
+
+def process_inactive_user(user):
+    if user.has_profile():
+        ...
+    else:
+        ...
+
+### 3️⃣ Avoid Deep Nesting — Return Early
+
+#### ❌ Noncompliant Code
+```python
+def calculate(data):
+    if data is not None:
+        total = 0
+        for item in data:
+            if item > 0:
+                total += item * 2
+        return total
+#### ✅ Compliant Code
+```python
+def calculate(data):
+    if data is None:
+        return None
+    total = 0
+    for item in data:
+        if item > 0:
+            total += item * 2
+    return total
